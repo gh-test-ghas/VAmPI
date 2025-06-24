@@ -1,6 +1,11 @@
 name: Upload SBOM to Dependency Graph
 
 on:
+
+  push:
+    branches:
+      - "master"
+      - "test"
   # Allow manual trigger
   workflow_dispatch:
 
