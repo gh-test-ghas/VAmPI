@@ -1,7 +1,6 @@
 name: Upload SBOM to Dependency Graph
 
 on:
-  push:
   # Allow manual trigger
   workflow_dispatch:
 
@@ -14,15 +13,15 @@ jobs:
       contents: write
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
-    - name: Generate and submit SBOM to dependency graph
-      uses: anchore/sbom-action@v0
-      with:
-        # Enable dependency snapshot submission
-        dependency-snapshot: true
-        # Disable artifact upload since we only want dependency graph
-        upload-artifact: false
-        # Disable release asset upload
-        upload-release-assets: false
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Generate and submit SBOM to dependency graph
+        uses: anchore/sbom-action@v0
+        with:
+          # Enable dependency snapshot submission
+          dependency-snapshot: true
+          # Disable artifact upload since we only want dependency graph
+          upload-artifact: false
+          # Disable release asset upload
+          upload-release-assets: false
