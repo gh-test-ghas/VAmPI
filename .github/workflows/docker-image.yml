@@ -1,6 +1,7 @@
 name: Upload SBOM to Dependency Graph
 
 on:
+  push:
   # Allow manual trigger
   workflow_dispatch:
 
